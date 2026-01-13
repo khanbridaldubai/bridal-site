@@ -175,6 +175,7 @@
       color:var(--muted);
     }
 
+    /* How-to text styling (normal text, only titles bold) */
     .how{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -186,7 +187,9 @@
       padding:16px;
       background:#fff;
     }
-    .step b{display:block; margin-bottom:6px}
+    .step-title{font-weight:800; margin-bottom:6px}
+    .step-text{font-weight:400; color:var(--muted)}
+    .em{font-weight:700; color:var(--text)}
 
     .footer{
       border-top:1px solid var(--line);
@@ -196,7 +199,7 @@
       font-size:14px;
     }
 
-    /* ===== Slider (3x4 portrait) ===== */
+    /* ===== Slider (3x4 portrait for product cards only) ===== */
     .slider{
       position: relative;
       overflow: hidden;
@@ -278,6 +281,7 @@
         <nav aria-label="Main">
           <a href="#collection">Collection</a>
           <a href="#how">How to Order</a>
+          <a href="#social">Social Media</a>
           <a href="#contact">Contact</a>
         </nav>
 
@@ -294,8 +298,9 @@
       <div class="wrap">
         <div class="hero-grid">
           <div class="hero-card">
-            <div class="kicker">FREE WORLDWIDE SHIPPING</div>
-            <h1>Explore our exclusive bridal dresses</h1>
+            <!-- swapped text positions as requested -->
+            <div class="kicker">Explore our exclusive bridal dresses</div>
+            <h1>FREE WORLDWIDE SHIPPING</h1>
             <p class="lead">
               Browse our collection and order directly through <b>Instagram DM</b> or <b>WhatsApp</b>.
               Fast replies, sizing help, and worldwide delivery.
@@ -305,12 +310,13 @@
               <a class="btn" href="#how">How ordering works</a>
             </div>
             <div class="badges">
-              <div class="badge">Lace • 2025 Collection</div>
-              <div class="badge">2–8 weeks production</div>
-              <div class="badge">7–14 days delivery</div>
+              <div class="badge">New arrivals</div>
+              <div class="badge">Custom sizing</div>
+              <div class="badge">Worldwide delivery</div>
             </div>
           </div>
 
+          <!-- hero image is NOT 3x4 (kept normal) -->
           <div class="hero-media" aria-label="Hero image">
             <img src="images/IMG_6290.jpeg" alt="Khan Bridal Dubai collection">
             <div class="media-overlay">
@@ -331,7 +337,7 @@
         <div class="section-title">
           <div>
             <h2>Collection</h2>
-            <p>First 9 gowns show here — click <b>See more</b> to load more.</p>
+            <p>6 main gowns first. Click <b>See more</b> to load more.</p>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <span class="pill">Order via DM</span>
@@ -340,7 +346,7 @@
         </div>
 
         <div class="filters" role="search">
-          <input class="input" id="search" placeholder="Search (e.g., lace, couture, 2025)..." />
+          <input class="input" id="search" placeholder="Search (name, code)..." />
           <select id="category">
             <option value="all">All categories</option>
             <option value="Gowns">Gowns</option>
@@ -374,30 +380,68 @@
 
         <div class="how">
           <div class="step">
-            <b>1️⃣ Design &amp; Details</b>
-            You choose the dress model you like. If you want any modifications (sleeves, neckline, back, train length, fabric details, etc.),
-            tell us and we’ll confirm what can be customized.
+            <div class="step-title">1️⃣ Design &amp; Details</div>
+            <div class="step-text">
+              You choose the dress model you like. If you want any modifications (sleeves, neckline, back, train length, fabric details, etc.),
+              tell us and we’ll confirm what can be customized.
+            </div>
           </div>
+
           <div class="step">
-            <b>2️⃣ Measurements</b>
-            After confirmation, we send you our size chart. You simply take the measurements with your nearest tailor and send them to us.
-            The dress is made specially to your measurements.
+            <div class="step-title">2️⃣ Measurements</div>
+            <div class="step-text">
+              After confirmation, we send you our size chart. You simply take the measurements with your nearest tailor and send them to us.
+              The dress is made specially to your measurements.
+            </div>
           </div>
+
           <div class="step">
-            <b>3️⃣ Payment</b>
-            We require <b>50% prepayment</b> to start production. The remaining <b>50%</b> is paid before shipping.
+            <div class="step-title">3️⃣ Payment</div>
+            <div class="step-text">
+              We require <span class="em">50% prepayment</span> to start production. The remaining <span class="em">50%</span> is paid before shipping.
+            </div>
           </div>
+
           <div class="step">
-            <b>4️⃣ Production</b>
-            Sewing time is <b>2–8 weeks</b>, depending on the design and customization.
+            <div class="step-title">4️⃣ Production</div>
+            <div class="step-text">
+              Sewing time is <span class="em">2–8 weeks</span>, depending on the design and customization.
+            </div>
           </div>
+
           <div class="step">
-            <b>5️⃣ Delivery</b>
-            <b>Free worldwide shipping</b> takes <b>7–14 days</b>. We provide tracking once the dress is shipped.
+            <div class="step-title">5️⃣ Delivery</div>
+            <div class="step-text">
+              Delivery takes <span class="em">7–14 days</span>. We provide tracking once the dress is shipped.
+            </div>
           </div>
+
           <div class="step">
-            <b>Need help choosing?</b>
-            Message us your wedding date + budget + style you like, and we’ll recommend the best options.
+            <div class="step-title">Need help choosing?</div>
+            <div class="step-text">
+              Message us your wedding date + budget + style you like, and we’ll recommend the best options.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Media section -->
+    <section class="section" id="social">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <h2>Follow us on social media</h2>
+            <p>New arrivals, videos, and behind-the-scenes.</p>
+          </div>
+        </div>
+
+        <div class="hero-card" style="box-shadow:none">
+          <div style="display:flex; gap:12px; flex-wrap:wrap">
+            <a class="btn" href="https://instagram.com/khangelinlik" target="_blank" rel="noopener">Instagram: khangelinlik</a>
+            <a class="btn" href="https://instagram.com/khanbridaldubai" target="_blank" rel="noopener">Instagram: khanbridaldubai</a>
+            <a class="btn" href="https://threads.net/@khanbridaldubai" target="_blank" rel="noopener">Threads: khanbridaldubai</a>
+            <a class="btn" href="https://pinterest.com/khanbridaldubai" target="_blank" rel="noopener">Pinterest: khanbridaldubai</a>
           </div>
         </div>
       </div>
@@ -447,75 +491,129 @@
       return `https://ig.me/m/${BRAND.instagramHandle}`;
     }
 
-    // Helper: build product code KBD001...
-    function codeFromIndex(i){
-      return `KBD${String(i+1).padStart(3,'0')}`;
-    }
-
-    // === Your gowns built from q-separated groups (each group = 1 gown, multiple photos) ===
-    // All are Gowns, 1500 USD, Lace • 2025 Collection • Couture
-    const gownGroups = [
-      ["IMG_5718.jpeg","IMG_5720.jpeg"],
-
-      ["IMG_6630.jpeg","IMG_6631.jpeg","IMG_6632.jpeg","IMG_6633.jpeg"],
-      ["IMG_6634.jpeg","IMG_6635.jpeg","IMG_6636.jpeg","IMG_6637.jpeg"],
-      ["IMG_6638.jpeg","IMG_6639.jpeg","IMG_6640.jpeg"],
-
-      ["IMG_6641.jpeg"],
-      ["IMG_6642.jpeg","IMG_6643.jpeg","IMG_6644.jpeg","IMG_6645.jpeg","IMG_6646.jpeg"],
-      ["IMG_6647.jpeg","IMG_6648.jpeg","IMG_6649.jpeg","IMG_6650.jpeg"],
-      ["IMG_6651.jpeg","IMG_6652.jpeg","IMG_6653.jpeg"],
-      ["IMG_6654.jpeg","IMG_6655.jpeg","IMG_6656.jpeg","IMG_6657.jpeg"],
-
-      ["IMG_6663.jpeg","IMG_6664.jpeg","IMG_6665.jpeg","IMG_6666.jpeg"],
-      ["IMG_6668.jpeg","IMG_6669.jpeg","IMG_6670.jpeg","IMG_6671.jpeg","IMG_6672.jpeg"],
-      ["IMG_6673.jpeg","IMG_6674.jpeg","IMG_6675.jpeg","IMG_6676.jpeg"],
-      ["IMG_6677.jpeg","IMG_6678.jpeg","IMG_6679.jpeg","IMG_6680.jpeg","IMG_6681.jpeg"],
-      ["IMG_6682.jpeg","IMG_6683.jpeg","IMG_6684.jpeg","IMG_6685.jpeg","IMG_6686.jpeg"],
-      ["IMG_6687.jpeg","IMG_6688.jpeg","IMG_6689.jpeg","IMG_6690.jpeg"],
-      ["IMG_6691.jpeg","IMG_6692.jpeg","IMG_6693.jpeg","IMG_6694.jpeg","IMG_6695.jpeg","IMG_6696.jpeg"],
-      ["IMG_6697.jpeg","IMG_6698.jpeg","IMG_6699.jpeg","IMG_6700.jpeg","IMG_6701.jpeg"],
-      ["IMG_6702.jpeg","IMG_6703.jpeg","IMG_6704.jpeg","IMG_6705.jpeg","IMG_6706.jpeg"],
-      ["IMG_6707.jpeg","IMG_6708.jpeg","IMG_6709.jpeg","IMG_6710.jpeg","IMG_6711.jpeg","IMG_6712.jpeg"],
-
-      ["IMG_8777.jpeg","IMG_8778.jpeg","IMG_8780.jpeg"],
-
-      // BEST SELLER group = 89xx
-      ["IMG_8915.jpeg","IMG_8916.jpeg","IMG_8917.jpeg","IMG_8918.jpeg","IMG_8919.jpeg","IMG_8920.jpeg"],
-
-      // 90xx group
-      ["IMG_9006.jpeg","IMG_9007.jpeg","IMG_9008.jpeg","IMG_9009.jpeg","IMG_9010.jpeg","IMG_9012.jpeg","IMG_9013.jpeg","IMG_9014.jpeg"]
-    ];
-
-    const baseTags = ["Lace", "2025 Collection", "Couture"];
-
-    const products = gownGroups.map((group, idx) => {
-      const code = codeFromIndex(idx);
-      const number = String(idx+1).padStart(2,'0');
-
-      const isBestSeller = group.some(n => n.startsWith("IMG_891"));
-      const name = isBestSeller ? `B E S T  S E L L E R` : `L A C E  2 0 2 5  •  C O U T U R E  ${number}`;
-
-      return {
-        code,
-        name,
+    // ===== Main 6 gowns (stay first page) =====
+    const products = [
+      {
+        code: "KBD001",
+        name: "B E S T  S E L L E R",
         category: "Gowns",
         price: 1500,
         currency: "USD",
-        tags: isBestSeller ? ["Best Seller", ...baseTags] : baseTags,
-        images: group.map(f => `images/${f}`)
-      };
-    });
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: [
+          "images/IMG_8915.jpeg","images/IMG_8916.jpeg","images/IMG_8917.jpeg",
+          "images/IMG_8918.jpeg","images/IMG_8919.jpeg","images/IMG_8920.jpeg"
+        ]
+      },
+      {
+        code: "KBD002",
+        name: "L A Y L A Y S",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: [
+          "images/IMG_5722.jpeg","images/IMG_5723.jpeg","images/IMG_5724.jpeg",
+          "images/IMG_5725.jpeg","images/IMG_5726.jpeg"
+        ]
+      },
+      {
+        code: "KBD003",
+        name: "P E A R L",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: [
+          "images/IMG_7089.jpeg","images/IMG_7090.jpeg","images/IMG_7091.jpeg",
+          "images/IMG_7093.jpeg","images/IMG_7095.jpeg","images/IMG_7097.jpeg"
+        ]
+      },
+      {
+        code: "KBD004",
+        name: "C R Y S T A L",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: [
+          "images/IMG_8154.jpeg","images/IMG_8155.jpeg","images/IMG_8156.jpeg",
+          "images/IMG_8157.jpeg","images/IMG_8158.jpeg"
+        ]
+      },
+      {
+        code: "KBD005",
+        name: "S Y M P H O N I E",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: [
+          "images/IMG_8677.jpeg","images/IMG_8678.jpeg","images/IMG_8679.jpeg","images/IMG_8680.jpeg"
+        ]
+      },
+      {
+        code: "KBD006",
+        name: "G I L L I E",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: [
+          "images/IMG_9044.jpeg","images/IMG_9045.jpeg","images/IMG_9046.jpeg",
+          "images/IMG_9047.jpeg","images/IMG_9048.jpeg"
+        ]
+      }
+    ];
 
-    // ====== Render / Interactions ======
+    // ===== Extra gowns loaded by "See more" (your corrected grouping) =====
+    const extraGowns = [
+      {
+        code: "KBD007",
+        name: "C L A S S Y",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: [
+          "images/IMG_6638.jpeg","images/IMG_6639.jpeg","images/IMG_6640.jpeg","images/IMG_6641.jpeg"
+        ]
+      },
+      {
+        code: "KBD008",
+        name: "E L E G A N T",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: [
+          "images/IMG_9006.jpeg","images/IMG_9007.jpeg","images/IMG_9008.jpeg"
+        ]
+      },
+      {
+        code: "KBD009",
+        name: "G L A M O U R",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: [
+          "images/IMG_9009.jpeg","images/IMG_9010.jpeg","images/IMG_9012.jpeg","images/IMG_9013.jpeg","images/IMG_9014.jpeg"
+        ]
+      }
+    ];
+
+    const allProducts = products.concat(extraGowns);
+
+    // ===== Render / Interactions =====
     const grid = document.getElementById("grid");
     const search = document.getElementById("search");
     const category = document.getElementById("category");
     const sort = document.getElementById("sort");
     const loadMoreBtn = document.getElementById("loadMoreBtn");
 
-    let visibleCount = 9;          // show first 9
-    const pageSize = 9;            // load 9 more each click
+    let visibleCount = 6;    // show the 6 main gowns first
+    const pageSize = 9;      // how many to add when clicking See more (we only have 3 extras now)
 
     function money(p){ return `${p.currency} ${p.price.toLocaleString()}`; }
 
@@ -532,9 +630,9 @@
     function card(p){
       const wa = waLink(orderMessage(p));
       const ig = igDmLink();
-      const imgs = (p.images && p.images.length) ? p.images : [p.img];
-      const id = `slider-${p.code}`;
+      const imgs = (p.images && p.images.length) ? p.images : [];
 
+      const id = `slider-${p.code}`;
       const slides = imgs.map(src => `
         <div class="slide"><img src="${src}" alt="${p.name}"></div>
       `).join("");
@@ -573,7 +671,7 @@
       const q = (search.value || "").toLowerCase().trim();
       const cat = category.value;
 
-      let list = products.filter(p=>{
+      let list = allProducts.filter(p=>{
         const hit =
           p.name.toLowerCase().includes(q) ||
           p.code.toLowerCase().includes(q) ||
@@ -594,8 +692,10 @@
     function render(){
       const list = getFiltered();
 
-      // If user is filtering/searching, show ALL results (no paging confusion)
-      const filteringActive = (search.value || "").trim().length > 0 || category.value !== "all" || sort.value !== "featured";
+      const filteringActive =
+        (search.value || "").trim().length > 0 ||
+        category.value !== "all" ||
+        sort.value !== "featured";
 
       const showCount = filteringActive ? list.length : Math.min(visibleCount, list.length);
 
@@ -603,7 +703,6 @@
 
       enableSwipe();
 
-      // Show/Hide See more
       if(filteringActive){
         loadMoreBtn.style.display = "none";
       } else {
@@ -668,16 +767,15 @@
     email.href = `mailto:${BRAND.email}`;
 
     // Events
-    search.addEventListener("input", () => { visibleCount = 9; render(); });
-    category.addEventListener("change", () => { visibleCount = 9; render(); });
-    sort.addEventListener("change", () => { visibleCount = 9; render(); });
+    search.addEventListener("input", () => { visibleCount = 6; render(); });
+    category.addEventListener("change", () => { visibleCount = 6; render(); });
+    sort.addEventListener("change", () => { visibleCount = 6; render(); });
 
     loadMoreBtn.addEventListener("click", () => {
       visibleCount += pageSize;
       render();
     });
 
-    // First render
     render();
   </script>
 </body>
