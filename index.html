@@ -15,7 +15,6 @@
       --accent:#111827;
       --shadow: 0 10px 25px rgba(17,24,39,.08);
       --radius:18px;
-      --radius2:14px;
       --max:1160px;
       --pad:18px;
       --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
@@ -45,9 +44,14 @@
       display:flex; align-items:center; gap:10px;
       font-weight:700; letter-spacing:.2px;
     }
-    .logo{
-      width:36px; height:36px; border-radius:12px;
-      background:linear-gradient(135deg,#111827,#6b7280);
+    .logo-img{
+      width:36px;
+      height:36px;
+      border-radius:12px;
+      object-fit:cover;
+      display:block;
+      border:1px solid var(--line);
+      background:#fff;
     }
     nav{display:flex; gap:18px; align-items:center; color:var(--muted); font-size:14px}
     nav a:hover{color:var(--text)}
@@ -86,7 +90,7 @@
       background: #fff;
       box-shadow: var(--shadow);
     }
-    .kicker{color:var(--muted); font-weight:700; font-size:13px; letter-spacing:.12em; text-transform:uppercase}
+    .kicker{color:var(--muted); font-weight:800; font-size:13px; letter-spacing:.12em; text-transform:uppercase}
     h1{margin:10px 0 10px; font-size:44px; line-height:1.05}
     .lead{color:var(--muted); font-size:16px; margin:0 0 18px}
     .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
@@ -158,8 +162,8 @@
     .card:hover{transform: translateY(-2px); box-shadow: var(--shadow)}
     .card-body{padding:14px}
     .card-top{display:flex; justify-content:space-between; gap:10px; align-items:flex-start}
-    .name{font-weight:800; letter-spacing:.06em}
-    .price{font-weight:800}
+    .name{font-weight:900; letter-spacing:.06em}
+    .price{font-weight:900}
     .meta{color:var(--muted); font-size:13px; margin-top:6px}
     .actions{ display:flex; gap:10px; margin-top:12px; flex-wrap:wrap; }
     .pill{
@@ -206,7 +210,7 @@
     }
     .slide{
       min-width:100%;
-      aspect-ratio: 3 / 4; /* 3x4 portrait */
+      aspect-ratio: 3 / 4;
       background:#f3f4f6;
     }
     .slide img{
@@ -237,6 +241,12 @@
     .nav.prev{left:10px}
     .nav.next{right:10px}
 
+    .loadmore-wrap{
+      display:flex;
+      justify-content:center;
+      margin-top:16px;
+    }
+
     /* Responsive */
     @media (max-width: 980px){
       .hero-grid{grid-template-columns:1fr; }
@@ -258,7 +268,7 @@
     <div class="wrap">
       <header>
         <div class="brand">
-          <div class="logo" aria-hidden="true"></div>
+          <img class="logo-img" src="images/dfca7d53-6679-4ef4-a876-5033942d69a4.jpeg" alt="Khan Bridal Dubai logo">
           <div>
             <div style="font-size:15px">Khan Bridal Dubai</div>
             <div style="font-size:12px; color:var(--muted); font-weight:600">Online Collection</div>
@@ -284,8 +294,8 @@
       <div class="wrap">
         <div class="hero-grid">
           <div class="hero-card">
-            <div class="kicker">EXPLORE OUR EXCLUSIVE WEDDING DRESSES</div>
-            <h1>FREE WORLDWIDE SHIPPING</h1>
+            <div class="kicker">FREE WORLDWIDE SHIPPING</div>
+            <h1>Explore our exclusive bridal dresses</h1>
             <p class="lead">
               Browse our collection and order directly through <b>Instagram DM</b> or <b>WhatsApp</b>.
               Fast replies, sizing help, and worldwide delivery.
@@ -295,14 +305,14 @@
               <a class="btn" href="#how">How ordering works</a>
             </div>
             <div class="badges">
-              <div class="badge">Custom sizing support</div>
+              <div class="badge">Lace • 2025 Collection</div>
               <div class="badge">2–8 weeks production</div>
               <div class="badge">7–14 days delivery</div>
             </div>
           </div>
 
           <div class="hero-media" aria-label="Hero image">
-            <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=1600&q=80" alt="Bridal collection preview">
+            <img src="images/IMG_6290.jpeg" alt="Khan Bridal Dubai collection">
             <div class="media-overlay">
               <div class="mini">
                 <strong>See something you love?</strong><br/>
@@ -311,6 +321,7 @@
               <a class="btn primary" href="#collection">View Collection</a>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -320,7 +331,7 @@
         <div class="section-title">
           <div>
             <h2>Collection</h2>
-            <p>Swipe photos (mobile) or use arrows (desktop) for each gown.</p>
+            <p>First 9 gowns show here — click <b>See more</b> to load more.</p>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <span class="pill">Order via DM</span>
@@ -329,7 +340,7 @@
         </div>
 
         <div class="filters" role="search">
-          <input class="input" id="search" placeholder="Search (e.g., lace, mermaid, satin)..." />
+          <input class="input" id="search" placeholder="Search (e.g., lace, couture, 2025)..." />
           <select id="category">
             <option value="all">All categories</option>
             <option value="Gowns">Gowns</option>
@@ -345,6 +356,10 @@
         </div>
 
         <div class="grid" id="grid" aria-live="polite"></div>
+
+        <div class="loadmore-wrap">
+          <button class="btn" id="loadMoreBtn" type="button">See more</button>
+        </div>
       </div>
     </section>
 
@@ -370,15 +385,15 @@
           </div>
           <div class="step">
             <b>3️⃣ Payment</b>
-            We require 50% prepayment to start production. The remaining 50% is paid right before shipping.
+            We require <b>50% prepayment</b> to start production. The remaining <b>50%</b> is paid before shipping.
           </div>
           <div class="step">
             <b>4️⃣ Production</b>
-            Sewing time is 2–8 weeks, depending on the design and customization.
+            Sewing time is <b>2–8 weeks</b>, depending on the design and customization.
           </div>
           <div class="step">
             <b>5️⃣ Delivery</b>
-            <b>Free worldwide shipping takes 7–14 days. We provide tracking once the dress is shipped.
+            <b>Free worldwide shipping</b> takes <b>7–14 days</b>. We provide tracking once the dress is shipped.
           </div>
           <div class="step">
             <b>Need help choosing?</b>
@@ -432,116 +447,75 @@
       return `https://ig.me/m/${BRAND.instagramHandle}`;
     }
 
-    // Your images are in /images and all are .jpeg (matching your GitHub list)
-    const products = [
-      // BEST SELLER = 89xx
-      {
-        code: "KBD001",
-        name: "B E S T S E L L E R",
-        category: "Gowns",
-        price: 1600,
-        currency: "USD",
-        tags: ["BEST SELLER", "LACE", "CUSTOM"],
-        images: [
-          "images/IMG_8915.jpeg",
-          "images/IMG_8916.jpeg",
-          "images/IMG_8917.jpeg",
-          "images/IMG_8918.jpeg",
-          "images/IMG_8919.jpeg",
-          "images/IMG_8920.jpeg"
-        ]
-      },
+    // Helper: build product code KBD001...
+    function codeFromIndex(i){
+      return `KBD${String(i+1).padStart(3,'0')}`;
+    }
 
-      // 57xx
-      {
-        code: "KBD002",
-        name: "L A Y L A Y S",
-        category: "Gowns",
-        price: 1500,
-        currency: "USD",
-        tags: ["Lace", "Mermaid", "Classic"],
-        images: [
-          "images/IMG_5722.jpeg",
-          "images/IMG_5723.jpeg",
-          "images/IMG_5724.jpeg",
-          "images/IMG_5725.jpeg",
-          "images/IMG_5726.jpeg"
-        ]
-      },
+    // === Your gowns built from q-separated groups (each group = 1 gown, multiple photos) ===
+    // All are Gowns, 1500 USD, Lace • 2025 Collection • Couture
+    const gownGroups = [
+      ["IMG_5718.jpeg","IMG_5720.jpeg"],
 
-      // 70xx
-      {
-        code: "KBD003",
-        name: "P E A R L",
-        category: "Gowns",
-        price: 1800,
-        currency: "USD",
-        tags: ["Pearl", "Luxury", "New"],
-        images: [
-          "images/IMG_9044.jpeg",
-          "images/IMG_7045.jpeg",
-          "images/IMG_7046.jpeg",
-          "images/IMG_7047.jpeg",
-          "images/IMG_7048.jpeg"
-        ]
-      },
+      ["IMG_6630.jpeg","IMG_6631.jpeg","IMG_6632.jpeg","IMG_6633.jpeg"],
+      ["IMG_6634.jpeg","IMG_6635.jpeg","IMG_6636.jpeg","IMG_6637.jpeg"],
+      ["IMG_6638.jpeg","IMG_6639.jpeg","IMG_6640.jpeg"],
 
-      // 81xx
-      {
-        code: "KBD004",
-        name: "C R Y S T A L",
-        category: "Gowns",
-        price: 1400,
-        currency: "USD",
-        tags: ["Lace", "Sparkle", "Elegant"],
-        images: [
-          "images/IMG_8154.jpeg",
-          "images/IMG_8155.jpeg",
-          "images/IMG_8156.jpeg",
-          "images/IMG_8157.jpeg",
-          "images/IMG_8158.jpeg"
-        ]
-      },
+      ["IMG_6641.jpeg"],
+      ["IMG_6642.jpeg","IMG_6643.jpeg","IMG_6644.jpeg","IMG_6645.jpeg","IMG_6646.jpeg"],
+      ["IMG_6647.jpeg","IMG_6648.jpeg","IMG_6649.jpeg","IMG_6650.jpeg"],
+      ["IMG_6651.jpeg","IMG_6652.jpeg","IMG_6653.jpeg"],
+      ["IMG_6654.jpeg","IMG_6655.jpeg","IMG_6656.jpeg","IMG_6657.jpeg"],
 
-      // 86xx (you have 4 images)
-      {
-        code: "KBD005",
-        name: "S Y M P H O N I E",
-        category: "Gowns",
-        price: 1500,
-        currency: "USD",
-        tags: ["Lace", "Soft", "Modern"],
-        images: [
-          "images/IMG_8677.jpeg",
-          "images/IMG_8678.jpeg",
-          "images/IMG_8679.jpeg",
-          "images/IMG_8680.jpeg"
-        ]
-      },
+      ["IMG_6663.jpeg","IMG_6664.jpeg","IMG_6665.jpeg","IMG_6666.jpeg"],
+      ["IMG_6668.jpeg","IMG_6669.jpeg","IMG_6670.jpeg","IMG_6671.jpeg","IMG_6672.jpeg"],
+      ["IMG_6673.jpeg","IMG_6674.jpeg","IMG_6675.jpeg","IMG_6676.jpeg"],
+      ["IMG_6677.jpeg","IMG_6678.jpeg","IMG_6679.jpeg","IMG_6680.jpeg","IMG_6681.jpeg"],
+      ["IMG_6682.jpeg","IMG_6683.jpeg","IMG_6684.jpeg","IMG_6685.jpeg","IMG_6686.jpeg"],
+      ["IMG_6687.jpeg","IMG_6688.jpeg","IMG_6689.jpeg","IMG_6690.jpeg"],
+      ["IMG_6691.jpeg","IMG_6692.jpeg","IMG_6693.jpeg","IMG_6694.jpeg","IMG_6695.jpeg","IMG_6696.jpeg"],
+      ["IMG_6697.jpeg","IMG_6698.jpeg","IMG_6699.jpeg","IMG_6700.jpeg","IMG_6701.jpeg"],
+      ["IMG_6702.jpeg","IMG_6703.jpeg","IMG_6704.jpeg","IMG_6705.jpeg","IMG_6706.jpeg"],
+      ["IMG_6707.jpeg","IMG_6708.jpeg","IMG_6709.jpeg","IMG_6710.jpeg","IMG_6711.jpeg","IMG_6712.jpeg"],
 
-      // 90xx
-      {
-        code: "KBD006",
-        name: "G I L L I E",
-        category: "Gowns",
-        price: 1200,
-        currency: "USD",
-        tags: ["Mikado", "Shine", "Modern"],
-        images: [
-          "images/IMG_7089.jpeg",
-          "images/IMG_7090.jpeg",
-          "images/IMG_7091.jpeg",
-          "images/IMG_7093.jpeg",
-          "images/IMG_7095.jpeg",
-          "images/IMG_7097.jpeg"
-        ]
-      }
+      ["IMG_8777.jpeg","IMG_8778.jpeg","IMG_8780.jpeg"],
+
+      // BEST SELLER group = 89xx
+      ["IMG_8915.jpeg","IMG_8916.jpeg","IMG_8917.jpeg","IMG_8918.jpeg","IMG_8919.jpeg","IMG_8920.jpeg"],
+
+      // 90xx group
+      ["IMG_9006.jpeg","IMG_9007.jpeg","IMG_9008.jpeg","IMG_9009.jpeg","IMG_9010.jpeg","IMG_9012.jpeg","IMG_9013.jpeg","IMG_9014.jpeg"]
     ];
 
+    const baseTags = ["Lace", "2025 Collection", "Couture"];
+
+    const products = gownGroups.map((group, idx) => {
+      const code = codeFromIndex(idx);
+      const number = String(idx+1).padStart(2,'0');
+
+      const isBestSeller = group.some(n => n.startsWith("IMG_891"));
+      const name = isBestSeller ? `B E S T  S E L L E R` : `L A C E  2 0 2 5  •  C O U T U R E  ${number}`;
+
+      return {
+        code,
+        name,
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: isBestSeller ? ["Best Seller", ...baseTags] : baseTags,
+        images: group.map(f => `images/${f}`)
+      };
+    });
+
+    // ====== Render / Interactions ======
     const grid = document.getElementById("grid");
     const search = document.getElementById("search");
     const category = document.getElementById("category");
     const sort = document.getElementById("sort");
+    const loadMoreBtn = document.getElementById("loadMoreBtn");
+
+    let visibleCount = 9;          // show first 9
+    const pageSize = 9;            // load 9 more each click
 
     function money(p){ return `${p.currency} ${p.price.toLocaleString()}`; }
 
@@ -595,7 +569,7 @@
       `;
     }
 
-    function applyFilters(){
+    function getFiltered(){
       const q = (search.value || "").toLowerCase().trim();
       const cat = category.value;
 
@@ -614,10 +588,30 @@
       if(s === "price-desc") list.sort((a,b)=>b.price-a.price);
       if(s === "name-asc") list.sort((a,b)=>a.name.localeCompare(b.name));
 
-      grid.innerHTML = list.map(card).join("");
-      enableSwipe();
+      return list;
     }
 
+    function render(){
+      const list = getFiltered();
+
+      // If user is filtering/searching, show ALL results (no paging confusion)
+      const filteringActive = (search.value || "").trim().length > 0 || category.value !== "all" || sort.value !== "featured";
+
+      const showCount = filteringActive ? list.length : Math.min(visibleCount, list.length);
+
+      grid.innerHTML = list.slice(0, showCount).map(card).join("");
+
+      enableSwipe();
+
+      // Show/Hide See more
+      if(filteringActive){
+        loadMoreBtn.style.display = "none";
+      } else {
+        loadMoreBtn.style.display = (showCount < list.length) ? "inline-flex" : "none";
+      }
+    }
+
+    // slider controls
     function moveSlide(sliderId, direction){
       const slider = document.getElementById(sliderId);
       if(!slider) return;
@@ -635,6 +629,7 @@
       slides.style.transform = `translateX(-${index * 100}%)`;
     }
 
+    // swipe support
     function enableSwipe(){
       document.querySelectorAll(".slider").forEach(slider => {
         if(slider.dataset.swipeBound === "1") return;
@@ -672,7 +667,18 @@
     tel.href = `tel:${BRAND.phone.replace(/\s/g,'')}`;
     email.href = `mailto:${BRAND.email}`;
 
-    applyFilters();
+    // Events
+    search.addEventListener("input", () => { visibleCount = 9; render(); });
+    category.addEventListener("change", () => { visibleCount = 9; render(); });
+    sort.addEventListener("change", () => { visibleCount = 9; render(); });
+
+    loadMoreBtn.addEventListener("click", () => {
+      visibleCount += pageSize;
+      render();
+    });
+
+    // First render
+    render();
   </script>
 </body>
 </html>
