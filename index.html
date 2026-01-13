@@ -102,6 +102,8 @@
       font-size:13px;
       color:var(--muted);
     }
+
+    /* HERO image = 4x3 (as requested) */
     .hero-media{
       border:1px solid var(--line);
       border-radius: var(--radius);
@@ -109,9 +111,11 @@
       background: linear-gradient(135deg, #f3f4f6, #fff);
       box-shadow: var(--shadow);
       position:relative;
-      min-height:320px;
+      aspect-ratio: 4 / 3;
+      min-height:0;
     }
     .hero-media img{ width:100%; height:100%; object-fit:cover; display:block; }
+
     .media-overlay{
       position:absolute; inset:auto 14px 14px 14px;
       background:rgba(255,255,255,.92);
@@ -175,7 +179,7 @@
       color:var(--muted);
     }
 
-    /* How-to text styling (normal text, only titles bold) */
+    /* How-to text styling (remove heavy bold, only titles bold) */
     .how{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -199,7 +203,7 @@
       font-size:14px;
     }
 
-    /* ===== Slider (3x4 portrait for product cards only) ===== */
+    /* ===== Product slider (kept 3x4 for gowns photos) ===== */
     .slider{
       position: relative;
       overflow: hidden;
@@ -255,7 +259,6 @@
       .hero-grid{grid-template-columns:1fr; }
       .grid{grid-template-columns: repeat(2, 1fr);}
       h1{font-size:38px}
-      .hero-media{min-height:260px}
       .how{grid-template-columns:1fr}
     }
     @media (max-width: 540px){
@@ -266,6 +269,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="topbar">
     <div class="wrap">
@@ -310,13 +314,12 @@
               <a class="btn" href="#how">How ordering works</a>
             </div>
             <div class="badges">
-              <div class="badge">New arrivals</div>
-              <div class="badge">Custom sizing</div>
-              <div class="badge">Worldwide delivery</div>
+              <div class="badge">Custom sizing support</div>
+              <div class="badge">2–8 weeks production</div>
+              <div class="badge">7–14 days delivery</div>
             </div>
           </div>
 
-          <!-- hero image is NOT 3x4 (kept normal) -->
           <div class="hero-media" aria-label="Hero image">
             <img src="images/IMG_6290.jpeg" alt="Khan Bridal Dubai collection">
             <div class="media-overlay">
@@ -337,7 +340,7 @@
         <div class="section-title">
           <div>
             <h2>Collection</h2>
-            <p>6 main gowns first. Click <b>See more</b> to load more.</p>
+            <p>6 main gowns first. Click <b>See more</b> to load all additional gowns.</p>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <span class="pill">Order via DM</span>
@@ -346,7 +349,7 @@
         </div>
 
         <div class="filters" role="search">
-          <input class="input" id="search" placeholder="Search (name, code)..." />
+          <input class="input" id="search" placeholder="Search (name, code, tags)..." />
           <select id="category">
             <option value="all">All categories</option>
             <option value="Gowns">Gowns</option>
@@ -426,7 +429,6 @@
       </div>
     </section>
 
-    <!-- Social Media section -->
     <section class="section" id="social">
       <div class="wrap">
         <div class="section-title">
@@ -491,7 +493,7 @@
       return `https://ig.me/m/${BRAND.instagramHandle}`;
     }
 
-    // ===== Main 6 gowns (stay first page) =====
+    // ===== Main 6 gowns (stay first) =====
     const products = [
       {
         code: "KBD001",
@@ -566,7 +568,7 @@
       }
     ];
 
-    // ===== Extra gowns loaded by "See more" (your corrected grouping) =====
+    // ===== Extra gowns (ALL groups you listed) =====
     const extraGowns = [
       {
         code: "KBD007",
@@ -575,9 +577,7 @@
         price: 1500,
         currency: "USD",
         tags: ["Lace", "2025 Collection", "Couture"],
-        images: [
-          "images/IMG_6638.jpeg","images/IMG_6639.jpeg","images/IMG_6640.jpeg","images/IMG_6641.jpeg"
-        ]
+        images: ["images/IMG_5718.jpeg","images/IMG_5720.jpeg"]
       },
       {
         code: "KBD008",
@@ -586,9 +586,7 @@
         price: 1500,
         currency: "USD",
         tags: ["Lace", "2025 Collection", "Couture"],
-        images: [
-          "images/IMG_9006.jpeg","images/IMG_9007.jpeg","images/IMG_9008.jpeg"
-        ]
+        images: ["images/IMG_6630.jpeg","images/IMG_6631.jpeg","images/IMG_6632.jpeg","images/IMG_6633.jpeg"]
       },
       {
         code: "KBD009",
@@ -597,9 +595,169 @@
         price: 1500,
         currency: "USD",
         tags: ["Lace", "2025 Collection", "Couture"],
-        images: [
-          "images/IMG_9009.jpeg","images/IMG_9010.jpeg","images/IMG_9012.jpeg","images/IMG_9013.jpeg","images/IMG_9014.jpeg"
-        ]
+        images: ["images/IMG_6634.jpeg","images/IMG_6635.jpeg","images/IMG_6636.jpeg","images/IMG_6637.jpeg"]
+      },
+      {
+        code: "KBD010",
+        name: "R O Y A L",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_6638.jpeg","images/IMG_6639.jpeg","images/IMG_6640.jpeg","images/IMG_6641.jpeg"]
+      },
+      {
+        code: "KBD011",
+        name: "P R I N C E S S",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_6642.jpeg","images/IMG_6643.jpeg","images/IMG_6644.jpeg","images/IMG_6645.jpeg","images/IMG_6646.jpeg"]
+      },
+      {
+        code: "KBD012",
+        name: "S I L K Y",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_6647.jpeg","images/IMG_6648.jpeg","images/IMG_6649.jpeg","images/IMG_6650.jpeg"]
+      },
+      {
+        code: "KBD013",
+        name: "S O F T",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_6651.jpeg","images/IMG_6652.jpeg","images/IMG_6653.jpeg"]
+      },
+      {
+        code: "KBD014",
+        name: "D E L I C A T E",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_6654.jpeg","images/IMG_6655.jpeg","images/IMG_6656.jpeg","images/IMG_6657.jpeg"]
+      },
+      {
+        code: "KBD015",
+        name: "S P A R K L E",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_6663.jpeg","images/IMG_6664.jpeg","images/IMG_6665.jpeg","images/IMG_6666.jpeg"]
+      },
+      {
+        code: "KBD016",
+        name: "M O D E R N",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_6668.jpeg","images/IMG_6669.jpeg","images/IMG_6670.jpeg","images/IMG_6671.jpeg","images/IMG_6672.jpeg"]
+      },
+      {
+        code: "KBD017",
+        name: "C L A S S I C",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_6673.jpeg","images/IMG_6674.jpeg","images/IMG_6675.jpeg","images/IMG_6676.jpeg"]
+      },
+      {
+        code: "KBD018",
+        name: "G R A C E",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_6677.jpeg","images/IMG_6678.jpeg","images/IMG_6679.jpeg","images/IMG_6680.jpeg","images/IMG_6681.jpeg"]
+      },
+      {
+        code: "KBD019",
+        name: "L U X U R Y",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_6682.jpeg","images/IMG_6683.jpeg","images/IMG_6684.jpeg","images/IMG_6685.jpeg","images/IMG_6686.jpeg"]
+      },
+      {
+        code: "KBD020",
+        name: "C H I C",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_6687.jpeg","images/IMG_6688.jpeg","images/IMG_6689.jpeg","images/IMG_6690.jpeg"]
+      },
+      {
+        code: "KBD021",
+        name: "S I G N A T U R E",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_6691.jpeg","images/IMG_6692.jpeg","images/IMG_6693.jpeg","images/IMG_6694.jpeg","images/IMG_6695.jpeg","images/IMG_6696.jpeg"]
+      },
+      {
+        code: "KBD022",
+        name: "D R E A M",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_6697.jpeg","images/IMG_6698.jpeg","images/IMG_6699.jpeg","images/IMG_6700.jpeg","images/IMG_6701.jpeg"]
+      },
+      {
+        code: "KBD023",
+        name: "M A J E S T Y",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_6702.jpeg","images/IMG_6703.jpeg","images/IMG_6704.jpeg","images/IMG_6705.jpeg","images/IMG_6706.jpeg"]
+      },
+      {
+        code: "KBD024",
+        name: "B E A U T Y",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_6707.jpeg","images/IMG_6708.jpeg","images/IMG_6709.jpeg","images/IMG_6710.jpeg","images/IMG_6711.jpeg","images/IMG_6712.jpeg"]
+      },
+      {
+        code: "KBD025",
+        name: "N E W  A R R I V A L",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_8777.jpeg","images/IMG_8778.jpeg","images/IMG_8780.jpeg"]
+      },
+      {
+        code: "KBD026",
+        name: "S T A R L I G H T",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_9006.jpeg","images/IMG_9007.jpeg","images/IMG_9008.jpeg"]
+      },
+      {
+        code: "KBD027",
+        name: "M O O N L I T",
+        category: "Gowns",
+        price: 1500,
+        currency: "USD",
+        tags: ["Lace", "2025 Collection", "Couture"],
+        images: ["images/IMG_9009.jpeg","images/IMG_9010.jpeg","images/IMG_9012.jpeg","images/IMG_9013.jpeg","images/IMG_9014.jpeg"]
       }
     ];
 
@@ -612,8 +770,8 @@
     const sort = document.getElementById("sort");
     const loadMoreBtn = document.getElementById("loadMoreBtn");
 
-    let visibleCount = 6;    // show the 6 main gowns first
-    const pageSize = 9;      // how many to add when clicking See more (we only have 3 extras now)
+    let visibleCount = 6;   // show 6 first
+    const pageSize = 9;     // load 9 more each click
 
     function money(p){ return `${p.currency} ${p.price.toLocaleString()}`; }
 
@@ -677,6 +835,7 @@
           p.code.toLowerCase().includes(q) ||
           p.category.toLowerCase().includes(q) ||
           p.tags.join(" ").toLowerCase().includes(q);
+
         const catOk = (cat === "all") || (p.category === cat);
         return hit && catOk;
       });
@@ -692,6 +851,7 @@
     function render(){
       const list = getFiltered();
 
+      // When searching/filtering, show all results (no paging confusion)
       const filteringActive =
         (search.value || "").trim().length > 0 ||
         category.value !== "all" ||
@@ -700,7 +860,6 @@
       const showCount = filteringActive ? list.length : Math.min(visibleCount, list.length);
 
       grid.innerHTML = list.slice(0, showCount).map(card).join("");
-
       enableSwipe();
 
       if(filteringActive){
