@@ -214,7 +214,37 @@
       .input{min-width: 100%}
       nav{display:none}
     }
-  </style>
+  .gallery {
+  padding: 10px;
+}
+
+.main-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.thumbs {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.thumbs img {
+  width: 54px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0.75;
+  border: 1px solid #e5e7eb;
+}
+
+.thumbs img:hover {
+  opacity: 1;
+}
+</style>
 </head>
 <body>
   <div class="topbar">
@@ -498,28 +528,42 @@
     }
 
     function card(p){
-      const wa = waLink(orderMessage(p));
-      const ig = igDmLink();
-      return `
-        <article class="card">
-          <img src="${p.img}" alt="${p.name}">
-          <div class="card-body">
-            <div class="card-top">
-              <div>
-                <div class="name">${p.name}</div>
-                <div class="meta">${p.category} • <b>Code:</b> ${p.code}</div>
-              </div>
-              <div class="price">${money(p)}</div>
-            </div>
-            <div class="meta">${p.tags.map(t=>`<span class="pill">${t}</span>`).join(" ")}</div>
-            <div class="actions">
-              <a class="btn primary" href="${wa}" target="_blank" rel="noopener">WhatsApp Order</a>
-              <a class="btn" href="${ig}" target="_blank" rel="noopener">Instagram DM</a>
-            </div>
+  const wa = waLink(orderMessage(p));
+  const ig = igDmLink();
+  const imgs = p.images && p.images.length ? p.images : [p.img];
+
+  const thumbs = imgs.map((src,i)=>`
+    <img src="${src}" onclick="swapImage(this, '${src}')" />
+  `).join("");
+
+  return `
+    <article class="card">
+      <div class="gallery">
+        <img class="main-img" src="${imgs[0]}" alt="${p.name}">
+        <div class="thumbs">${thumbs}</div>
+      </div>
+
+      <div class="card-body">
+        <div class="card-top">
+          <div>
+            <div class="name">${p.name}</div>
+            <div class="meta">${p.category} • <b>Code:</b> ${p.code}</div>
           </div>
-        </article>
-      `;
-    }
+          <div class="price">${money(p)}</div>
+        </div>
+
+        <div class="meta">
+          ${p.tags.map(t=>`<span class="pill">${t}</span>`).join(" ")}
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="${wa}" target="_blank">WhatsApp Order</a>
+          <a class="btn" href="${ig}" target="_blank">Instagram DM</a>
+        </div>
+      </div>
+    </article>
+  `;
+}
 
     function applyFilters(){
       const q = (search.value || "").toLowerCase().trim();
@@ -567,6 +611,12 @@
     sort.addEventListener("change", applyFilters);
 
     applyFilters();
+    
+    function swapImage(el, src){
+  const card = el.closest(".card");
+  card.querySelector(".main-img").src = src;
+}
+
   </script>
 </body>
 </html>
