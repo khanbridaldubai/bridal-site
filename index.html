@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Bridal Boutique — Online Collection</title>
-  <meta name="description" content="Shop bridal gowns & accessories. Order via Instagram DM or WhatsApp." />
+  <title>Khan Bridal Dubai — Online Collection</title>
+  <meta name="description" content="Shop bridal gowns. Order via Instagram DM or WhatsApp." />
   <style>
     :root{
       --bg:#ffffff;
@@ -72,9 +72,7 @@
       color:#fff;
     }
 
-    .hero{
-      padding:46px 0 18px;
-    }
+    .hero{ padding:46px 0 18px; }
     .hero-grid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -88,7 +86,7 @@
       background: #fff;
       box-shadow: var(--shadow);
     }
-    .kicker{color:var(--muted); font-weight:600; font-size:13px; letter-spacing:.12em; text-transform:uppercase}
+    .kicker{color:var(--muted); font-weight:700; font-size:13px; letter-spacing:.12em; text-transform:uppercase}
     h1{margin:10px 0 10px; font-size:44px; line-height:1.05}
     .lead{color:var(--muted); font-size:16px; margin:0 0 18px}
     .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
@@ -109,9 +107,7 @@
       position:relative;
       min-height:320px;
     }
-    .hero-media img{
-      width:100%; height:100%; object-fit:cover; display:block;
-    }
+    .hero-media img{ width:100%; height:100%; object-fit:cover; display:block; }
     .media-overlay{
       position:absolute; inset:auto 14px 14px 14px;
       background:rgba(255,255,255,.92);
@@ -160,18 +156,12 @@
       transition:.15s ease;
     }
     .card:hover{transform: translateY(-2px); box-shadow: var(--shadow)}
-    .card img{
-      width:100%; height:320px; object-fit:cover; display:block;
-      background: #f3f4f6;
-    }
     .card-body{padding:14px}
     .card-top{display:flex; justify-content:space-between; gap:10px; align-items:flex-start}
-    .name{font-weight:700}
-    .price{font-weight:700}
+    .name{font-weight:800; letter-spacing:.06em}
+    .price{font-weight:800}
     .meta{color:var(--muted); font-size:13px; margin-top:6px}
-    .actions{
-      display:flex; gap:10px; margin-top:12px; flex-wrap:wrap;
-    }
+    .actions{ display:flex; gap:10px; margin-top:12px; flex-wrap:wrap; }
     .pill{
       border:1px solid var(--line);
       background:var(--card);
@@ -193,6 +183,7 @@
       background:#fff;
     }
     .step b{display:block; margin-bottom:6px}
+
     .footer{
       border-top:1px solid var(--line);
       margin-top:26px;
@@ -200,6 +191,51 @@
       color:var(--muted);
       font-size:14px;
     }
+
+    /* ===== Slider (3x4 portrait) ===== */
+    .slider{
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background:#f3f4f6;
+    }
+    .slides{
+      display:flex;
+      transition: transform 0.4s ease;
+      will-change: transform;
+    }
+    .slide{
+      min-width:100%;
+      aspect-ratio: 3 / 4; /* 3x4 portrait */
+      background:#f3f4f6;
+    }
+    .slide img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      background:#f3f4f6;
+    }
+    .nav{
+      position:absolute;
+      top:50%;
+      transform: translateY(-50%);
+      width:36px;
+      height:36px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.5);
+      background: rgba(17,24,39,.45);
+      color:#fff;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:22px;
+      line-height:1;
+      user-select:none;
+    }
+    .nav.prev{left:10px}
+    .nav.next{right:10px}
 
     /* Responsive */
     @media (max-width: 980px){
@@ -213,38 +249,9 @@
       .grid{grid-template-columns: 1fr;}
       .input{min-width: 100%}
       nav{display:none}
+      .nav{display:none} /* swipe only on mobile */
     }
-  .gallery {
-  padding: 10px;
-}
-
-.main-img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
-  border-radius: 14px;
-}
-
-.thumbs {
-  display: flex;
-  gap: 8px;
-  margin-top: 8px;
-}
-
-.thumbs img {
-  width: 54px;
-  height: 54px;
-  object-fit: cover;
-  border-radius: 10px;
-  cursor: pointer;
-  opacity: 0.75;
-  border: 1px solid #e5e7eb;
-}
-
-.thumbs img:hover {
-  opacity: 1;
-}
-</style>
+  </style>
 </head>
 <body>
   <div class="topbar">
@@ -253,7 +260,7 @@
         <div class="brand">
           <div class="logo" aria-hidden="true"></div>
           <div>
-            <div style="font-size:15px">Your Bridal Boutique</div>
+            <div style="font-size:15px">Khan Bridal Dubai</div>
             <div style="font-size:12px; color:var(--muted); font-weight:600">Online Collection</div>
           </div>
         </div>
@@ -277,25 +284,24 @@
       <div class="wrap">
         <div class="hero-grid">
           <div class="hero-card">
-            <div class="kicker">Bridal • Made to shine</div>
-            <h1>Discover your perfect look.</h1>
+            <div class="kicker">FREE WORLDWIDE SHIPPING</div>
+            <h1>Explore our exclusive bridal dresses</h1>
             <p class="lead">
-              Browse our bridal collection and order directly through <b>Instagram DM</b> or <b>WhatsApp</b>.
-              Fast replies, sizing help, and worldwide shipping options.
+              Browse our collection and order directly through <b>Instagram DM</b> or <b>WhatsApp</b>.
+              Fast replies, sizing help, and worldwide delivery.
             </p>
             <div class="cta-row" style="margin-top:10px; flex-wrap:wrap">
               <a class="btn primary" href="#collection">Shop the Collection</a>
               <a class="btn" href="#how">How ordering works</a>
             </div>
             <div class="badges">
-              <div class="badge">New arrivals weekly</div>
               <div class="badge">Custom sizing support</div>
-              <div class="badge">Worldwide delivery</div>
+              <div class="badge">2–8 weeks production</div>
+              <div class="badge">7–14 days delivery</div>
             </div>
           </div>
 
           <div class="hero-media" aria-label="Hero image">
-            <!-- Replace this image with your own -->
             <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=1600&q=80" alt="Bridal collection preview">
             <div class="media-overlay">
               <div class="mini">
@@ -314,7 +320,7 @@
         <div class="section-title">
           <div>
             <h2>Collection</h2>
-            <p>Tap an item to order via WhatsApp or Instagram DM.</p>
+            <p>Swipe photos (mobile) or use arrows (desktop) for each gown.</p>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <span class="pill">Order via DM</span>
@@ -323,7 +329,7 @@
         </div>
 
         <div class="filters" role="search">
-          <input class="input" id="search" placeholder="Search (e.g., satin, lace, mermaid)..." />
+          <input class="input" id="search" placeholder="Search (e.g., lace, mermaid, satin)..." />
           <select id="category">
             <option value="all">All categories</option>
             <option value="Gowns">Gowns</option>
@@ -347,22 +353,36 @@
         <div class="section-title">
           <div>
             <h2>How to Order</h2>
-            <p>Simple ordering through Instagram or WhatsApp.</p>
+            <p>Here is the process of ordering your wedding dress:</p>
           </div>
         </div>
 
         <div class="how">
           <div class="step">
-            <b>1) Choose your item</b>
-            Find a design you love and note its <b>Product Code</b>.
+            <b>1️⃣ Design &amp; Details</b>
+            You choose the dress model you like. If you want any modifications (sleeves, neckline, back, train length, fabric details, etc.),
+            tell us and we’ll confirm what can be customized.
           </div>
           <div class="step">
-            <b>2) Message us</b>
-            Click “WhatsApp Order” or “Instagram DM” and send the code + your size.
+            <b>2️⃣ Measurements</b>
+            After confirmation, we send you our size chart. You simply take the measurements with your nearest tailor and send them to us.
+            The dress is made specially to your measurements.
           </div>
           <div class="step">
-            <b>3) Confirm & pay</b>
-            We confirm availability, price, shipping, then send payment instructions.
+            <b>3️⃣ Payment</b>
+            We require <b>50% prepayment</b> to start production. The remaining <b>50%</b> is paid before shipping.
+          </div>
+          <div class="step">
+            <b>4️⃣ Production</b>
+            Sewing time is <b>2–8 weeks</b>, depending on the design and customization.
+          </div>
+          <div class="step">
+            <b>5️⃣ Delivery</b>
+            <b>Free worldwide shipping</b> takes <b>7–14 days</b>. We provide tracking once the dress is shipped.
+          </div>
+          <div class="step">
+            <b>Need help choosing?</b>
+            Message us your wedding date + budget + style you like, and we’ll recommend the best options.
           </div>
         </div>
       </div>
@@ -390,126 +410,134 @@
         </div>
 
         <div class="footer">
-          © <span id="year"></span> Your Bridal Boutique. All rights reserved.
+          © 2026 Khan Bridal Dubai. All rights reserved.
         </div>
       </div>
     </section>
   </main>
 
   <script>
-    // ====== CONFIG: Replace these with YOUR real links/numbers ======
     const BRAND = {
-      instagramHandle: "khanbridaldubai", // without @
-      whatsappNumberE164: "+994773420411", // example: +994...
+      instagramHandle: "khanbridaldubai",
+      whatsappNumberE164: "+994773420411",
       phone: "+994 77 342 04 11",
       email: "khanbridaldubai@gmail.com"
     };
 
-    // Optional: WhatsApp prefilled message template
     function waLink(message){
       const num = BRAND.whatsappNumberE164.replace(/\D/g,'');
       return `https://wa.me/${num}?text=${encodeURIComponent(message)}`;
     }
     function igDmLink(){
-      // Works best on mobile; for desktop you can link to profile.
       return `https://ig.me/m/${BRAND.instagramHandle}`;
     }
 
-    // ====== PRODUCTS: Replace images, names, prices, codes, categories ======
+    // Your images are in /images and all are .jpeg (matching your GitHub list)
     const products = [
+      // BEST SELLER = 89xx
       {
         code: "KBD001",
         name: "B E S T S E L L E R",
-        category: "bridal gown",
+        category: "Gowns",
         price: 1600,
         currency: "USD",
-        tags: ["LACE", "Minimal", "A-line"],
-       images: [
-  "images/IMG_5722.jpeg",
-  "images/IMG_5723.jpeg",
-  "images/IMG_5724.jpeg",
-  "images/IMG_5725.jpeg",
-  "images/IMG_5726.jpeg"
-]
+        tags: ["BEST SELLER", "LACE", "CUSTOM"],
+        images: [
+          "images/IMG_8915.jpeg",
+          "images/IMG_8916.jpeg",
+          "images/IMG_8917.jpeg",
+          "images/IMG_8918.jpeg",
+          "images/IMG_8919.jpeg",
+          "images/IMG_8920.jpeg"
+        ]
       },
+
+      // 57xx
       {
         code: "KBD002",
         name: "L A Y L A Y S",
-        category: "bridal gown",
+        category: "Gowns",
         price: 1500,
         currency: "USD",
         tags: ["Lace", "Mermaid", "Classic"],
         images: [
-  "img57667.jpg",
-  "img57668.jpg",
-  "img57669.jpg",
-  "img57670.jpg",
-  "img57671.jpg"
-]
+          "images/IMG_5722.jpeg",
+          "images/IMG_5723.jpeg",
+          "images/IMG_5724.jpeg",
+          "images/IMG_5725.jpeg",
+          "images/IMG_5726.jpeg"
+        ]
       },
+
+      // 70xx
       {
         code: "KBD003",
         name: "P E A R L",
-        category: "bridal gown",
+        category: "Gowns",
         price: 1800,
         currency: "USD",
-        tags: ["Pearl", "Cathedral", "New"],
-       images: [
-  "img57667.jpg",
-  "img57668.jpg",
-  "img57669.jpg",
-  "img57670.jpg",
-  "img57671.jpg"
-]
+        tags: ["Pearl", "Luxury", "New"],
+        images: [
+          "images/IMG_7089.jpeg",
+          "images/IMG_7090.jpeg",
+          "images/IMG_7091.jpeg",
+          "images/IMG_7093.jpeg",
+          "images/IMG_7095.jpeg",
+          "images/IMG_7097.jpeg"
+        ]
       },
+
+      // 81xx
       {
         code: "KBD004",
         name: "C R Y S T A L",
-        category: "bridal gown",
+        category: "Gowns",
         price: 1400,
         currency: "USD",
-        tags: ["Crystal", "Sparkle", "Gift"],
+        tags: ["Crystal", "Sparkle", "Elegant"],
         images: [
-  "img57667.jpg",
-  "img57668.jpg",
-  "img57669.jpg",
-  "img57670.jpg",
-  "img57671.jpg"
-]
+          "images/IMG_8154.jpeg",
+          "images/IMG_8155.jpeg",
+          "images/IMG_8156.jpeg",
+          "images/IMG_8157.jpeg",
+          "images/IMG_8158.jpeg"
+        ]
       },
+
+      // 86xx (you have 4 images)
       {
         code: "KBD005",
         name: "S Y M P H O N I E",
-        category: "bridal gown",
+        category: "Gowns",
         price: 1500,
         currency: "USD",
-        tags: ["Lace", "Romantic", "Soft"],
+        tags: ["Romantic", "Soft", "Modern"],
         images: [
-  "img57667.jpg",
-  "img57668.jpg",
-  "img57669.jpg",
-  "img57670.jpg",
-  "img57671.jpg"
-]
+          "images/IMG_8677.jpeg",
+          "images/IMG_8678.jpeg",
+          "images/IMG_8679.jpeg",
+          "images/IMG_8680.jpeg"
+        ]
       },
+
+      // 90xx
       {
         code: "KBD006",
         name: "G I L L I E",
-        category: "bridal gown",
+        category: "Gowns",
         price: 1200,
         currency: "USD",
         tags: ["Mikado", "Shine", "Modern"],
         images: [
-  "images/IMG_7089.jpeg",
-  "images/IMG_7090.jpeg",
-  "images/IMG_7091.jpeg",
-  "images/IMG_7093.jpeg",
-  "images/IMG_7095.jpeg"
-]
+          "images/IMG_9044.jpeg",
+          "images/IMG_9045.jpeg",
+          "images/IMG_9046.jpeg",
+          "images/IMG_9047.jpeg",
+          "images/IMG_9048.jpeg"
+        ]
       }
     ];
 
-    // ====== Render / Interactions ======
     const grid = document.getElementById("grid");
     const search = document.getElementById("search");
     const category = document.getElementById("category");
@@ -522,48 +550,50 @@
              `• Product Code: ${p.code}\n` +
              `• Item: ${p.name}\n` +
              `• Size: (write size)\n` +
-             `• Color: (optional)\n` +
+             `• Customizations: (optional)\n` +
              `• Wedding date: (optional)\n` +
              `Thank you!`;
     }
 
     function card(p){
-  const wa = waLink(orderMessage(p));
-  const ig = igDmLink();
-  const imgs = p.images && p.images.length ? p.images : [p.img];
+      const wa = waLink(orderMessage(p));
+      const ig = igDmLink();
+      const imgs = (p.images && p.images.length) ? p.images : [p.img];
+      const id = `slider-${p.code}`;
 
-  const thumbs = imgs.map((src,i)=>`
-    <img src="${src}" onclick="swapImage(this, '${src}')" />
-  `).join("");
+      const slides = imgs.map(src => `
+        <div class="slide"><img src="${src}" alt="${p.name}"></div>
+      `).join("");
 
-  return `
-    <article class="card">
-      <div class="gallery">
-        <img class="main-img" src="${imgs[0]}" alt="${p.name}">
-        <div class="thumbs">${thumbs}</div>
-      </div>
-
-      <div class="card-body">
-        <div class="card-top">
-          <div>
-            <div class="name">${p.name}</div>
-            <div class="meta">${p.category} • <b>Code:</b> ${p.code}</div>
+      return `
+        <article class="card">
+          <div class="slider" id="${id}" data-index="0">
+            <button class="nav prev" onclick="moveSlide('${id}',-1)" aria-label="Previous">‹</button>
+            <div class="slides">${slides}</div>
+            <button class="nav next" onclick="moveSlide('${id}',1)" aria-label="Next">›</button>
           </div>
-          <div class="price">${money(p)}</div>
-        </div>
 
-        <div class="meta">
-          ${p.tags.map(t=>`<span class="pill">${t}</span>`).join(" ")}
-        </div>
+          <div class="card-body">
+            <div class="card-top">
+              <div>
+                <div class="name">${p.name}</div>
+                <div class="meta">${p.category} • <b>Code:</b> ${p.code}</div>
+              </div>
+              <div class="price">${money(p)}</div>
+            </div>
 
-        <div class="actions">
-          <a class="btn primary" href="${wa}" target="_blank">WhatsApp Order</a>
-          <a class="btn" href="${ig}" target="_blank">Instagram DM</a>
-        </div>
-      </div>
-    </article>
-  `;
-}
+            <div class="meta">
+              ${p.tags.map(t=>`<span class="pill">${t}</span>`).join(" ")}
+            </div>
+
+            <div class="actions">
+              <a class="btn primary" href="${wa}" target="_blank" rel="noopener">WhatsApp Order</a>
+              <a class="btn" href="${ig}" target="_blank" rel="noopener">Instagram DM</a>
+            </div>
+          </div>
+        </article>
+      `;
+    }
 
     function applyFilters(){
       const q = (search.value || "").toLowerCase().trim();
@@ -585,16 +615,54 @@
       if(s === "name-asc") list.sort((a,b)=>a.name.localeCompare(b.name));
 
       grid.innerHTML = list.map(card).join("");
+      enableSwipe();
     }
 
-    // Set top/bottom contact links
+    function moveSlide(sliderId, direction){
+      const slider = document.getElementById(sliderId);
+      if(!slider) return;
+
+      const slides = slider.querySelector(".slides");
+      const total = slides.children.length;
+
+      let index = parseInt(slider.dataset.index || "0", 10);
+      index = index + direction;
+
+      if(index < 0) index = total - 1;
+      if(index >= total) index = 0;
+
+      slider.dataset.index = index.toString();
+      slides.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function enableSwipe(){
+      document.querySelectorAll(".slider").forEach(slider => {
+        if(slider.dataset.swipeBound === "1") return;
+        slider.dataset.swipeBound = "1";
+
+        let startX = 0;
+
+        slider.addEventListener("touchstart", (e) => {
+          startX = e.touches[0].clientX;
+        }, {passive:true});
+
+        slider.addEventListener("touchend", (e) => {
+          const endX = e.changedTouches[0].clientX;
+          const diff = startX - endX;
+          if(Math.abs(diff) > 40){
+            moveSlide(slider.id, diff > 0 ? 1 : -1);
+          }
+        }, {passive:true});
+      });
+    }
+
+    // Contact links
     const waTop = document.getElementById("waTop");
     const waBottom = document.getElementById("waBottom");
     const igTop = document.getElementById("igTop");
     const igBottom = document.getElementById("igBottom");
     const tel = document.getElementById("tel");
     const email = document.getElementById("email");
-    const year = document.getElementById("year");
 
     const generalMsg = "Hi! I want to order from your bridal collection. Can you help me?";
     waTop.href = waLink(generalMsg);
@@ -603,20 +671,8 @@
     igBottom.href = igDmLink();
     tel.href = `tel:${BRAND.phone.replace(/\s/g,'')}`;
     email.href = `mailto:${BRAND.email}`;
-    year.textContent = new Date().getFullYear();
-
-    // Events
-    search.addEventListener("input", applyFilters);
-    category.addEventListener("change", applyFilters);
-    sort.addEventListener("change", applyFilters);
 
     applyFilters();
-    
-    function swapImage(el, src){
-  const card = el.closest(".card");
-  card.querySelector(".main-img").src = src;
-}
-
   </script>
 </body>
 </html>
